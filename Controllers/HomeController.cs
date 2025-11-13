@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using switchers_platform.backend.Models;
+using switchers_platform.Models;
 
-namespace switchers_platform.backend.Controllers
+namespace switchers_platform.Controllers
 {
     public class HomeController : Controller
     {

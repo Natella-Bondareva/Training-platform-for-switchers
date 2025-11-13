@@ -1,4 +1,4 @@
-namespace switchers_platform.backend.Models
+namespace switchers_platform.Models
 {
     public class ErrorViewModel
     {

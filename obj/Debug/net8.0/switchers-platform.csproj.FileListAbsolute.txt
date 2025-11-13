@@ -6,12 +6,8 @@ D:\Платформа для світчерів\switchers-platform\switchers-pla
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\switchers-platform.MvcApplicationPartsAssemblyInfo.cache
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\switchers-platform.RazorAssemblyInfo.cache
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\switchers-platform.RazorAssemblyInfo.cs
-D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\backend\appsettings.Development.json
-D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\backend\appsettings.json
-D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\backend\Properties\launchSettings.json
 D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\frontend\package-lock.json
 D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\frontend\package.json
-D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\frontend\public\manifest.json
 D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\switchers-platform.staticwebassets.runtime.json
 D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\switchers-platform.staticwebassets.endpoints.json
 D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\switchers-platform.exe
@@ -22,7 +18,6 @@ D:\Платформа для світчерів\switchers-platform\switchers-pla
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\rjimswa.dswa.cache.json
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
-D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\scopedcss\backend\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\scopedcss\bundle\switchers-platform.styles.css
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\scopedcss\projectbundle\switchers-platform.bundle.scp.css
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\staticwebassets.build.json
@@ -35,3 +30,9 @@ D:\Платформа для світчерів\switchers-platform\switchers-pla
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\switchers-platform.pdb
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\switchers-platform.genruntimeconfig.cache
 D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\ref\switchers-platform.dll
+D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\switchers-platform.sourcelink.json
+D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\appsettings.Development.json
+D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\appsettings.json
+D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\frontend\src\public\manifest.json
+D:\Платформа для світчерів\switchers-platform\switchers-platform\bin\Debug\net8.0\Properties\launchSettings.json
+D:\Платформа для світчерів\switchers-platform\switchers-platform\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css

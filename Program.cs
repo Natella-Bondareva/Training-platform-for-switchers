@@ -1,4 +1,4 @@
-namespace switchers_platform.backend
+namespace switchers_platform
 {
     public class Program
     {
