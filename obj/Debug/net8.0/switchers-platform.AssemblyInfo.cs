@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("switchers-platform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8e1fda5bb1aa85c986044d443b60a43015cafbb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3cfa948017e9024a405fac684534cbd02cfc74e")]
 [assembly: System.Reflection.AssemblyProductAttribute("switchers-platform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("switchers-platform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
