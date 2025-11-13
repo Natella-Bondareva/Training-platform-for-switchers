@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "switchers-platform/1.0.0": {
+        "runtime": {
+          "switchers-platform.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "switchers-platform/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
