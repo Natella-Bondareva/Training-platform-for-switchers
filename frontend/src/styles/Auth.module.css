@@ -1,0 +1,108 @@
+.authWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.authBox {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #333;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+}
+
+input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ffc107;
+}
+
+.submitBtn {
+  background-color: #ffc107;
+  color: #1f1f1f;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submitBtn:hover {
+  background-color: #43a047;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: -5px;
+}
+
+.bottomText {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.bottomText span {
+  color: #ffc107;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Page-level layout to keep footer at bottom */
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.authWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.authBox {
+  font-family: inherit;
+}

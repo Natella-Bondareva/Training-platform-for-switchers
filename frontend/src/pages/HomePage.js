@@ -16,8 +16,8 @@ const Header = () => (
                 <li><Link to="/payments">Payments</Link></li>
             </ul>
             <div className="nav-actions">
-                <button className="btn btn-login">Login</button>
-                <button className="btn btn-signup">Sign-Up</button>
+                <Link to="/login"><button className="btn btn-login">Login</button></Link>
+                <Link to="/register"><button className="btn btn-signup">Sign-Up</button></Link>
             </div>
         </nav>
     </header>
