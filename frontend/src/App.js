@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { HomePage } from './pages/HomePage';
 import { AllCoursesPage } from './pages/AllCoursesPage';
+import { CoursePage } from './pages/CoursePage'; 
+import { PaymentPage, TechnicalSupportPageForm } from './pages/TechnicalSupportPage'; 
+
 import { CoursePage } from './pages/CoursePage';
 
 import RegisterPage from './pages/RegistrationPage';
@@ -22,6 +25,10 @@ function App() {
           {/* Авторизація */}
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+
+          <Route path="/course/:courseId" element={<CoursePage />} /> 
+          <Route path="/payment" element = {<PaymentPage />} />
+          <Route path="/tecnicalsupport" element = {<TechnicalSupportPageForm />} />
 
         </Routes>
       </div>
