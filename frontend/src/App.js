@@ -5,9 +5,6 @@ import { HomePage } from './pages/HomePage';
 import { AllCoursesPage } from './pages/AllCoursesPage';
 import { CoursePage } from './pages/CoursePage'; 
 import { PaymentPage, TechnicalSupportPageForm } from './pages/TechnicalSupportPage'; 
-
-import { CoursePage } from './pages/CoursePage';
-
 import RegisterPage from './pages/RegistrationPage';
 import LoginPage from './pages/LoginPage';
 
