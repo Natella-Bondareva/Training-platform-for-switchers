@@ -1,0 +1,360 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.start-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-background {
+    background-color: #333333;
+    background-image: repeating-linear-gradient(
+        45deg, 
+        rgba(0,0,0,0.1) 0, 
+        rgba(0,0,0,0.1) 1px, 
+        transparent 1px, 
+        transparent 2px
+    );
+    flex-grow: 1;
+}
+
+.main-content {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.site-header {
+    background-color: #4c4a4a;
+    color: #fff;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-left: auto; 
+    margin-right: 0; 
+    padding-right: 20px; 
+}
+
+.nav-links a, .site-name-link {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-actions {
+    margin-left: 0; 
+    display: flex;
+    align-items: center;
+}
+
+.nav-actions .btn {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+}
+.btn-login {
+    background-color: #ffc107; 
+    border-radius: 4px;
+}
+.btn-signup {
+    background-color: #4CAF50; 
+    color: white;
+    border-radius: 4px;
+}
+
+.hero-section {
+    position: relative;
+    padding-bottom: 80px; 
+}
+
+.hero-image-container {
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    border-radius: 8px; 
+}
+
+.hero-stairs-image {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.hero-popup {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 700px;
+    width: 90%;
+    text-align: center;
+}
+
+.hero-popup p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.hero-popup .btn {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px; 
+}
+.btn-popup-login { background-color: #ffc107; }
+.btn-popup-signup { background-color: #4CAF50; color: white; }
+
+.role-selection-section {
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.role-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.role-card {
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.role-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-image-placeholder {
+    height: 150px;
+    background-color: #ddd;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-size: 14px;
+}
+
+.role-card h3 {
+    color: #007bff;
+}
+
+/* Стилі карти ролі */
+.role-card .card-header {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.role-card .card-image-placeholder {
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: top center;
+}
+
+
+.role-card .card-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, transparent 50%, #ffc107 50%); /* Жовтий кут */
+    opacity: 0.8;
+}
+
+.role-card h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.role-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.btn-view-path {
+    background-color:#ffc107; 
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 8px 25px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.btn-all-roles
+{
+    background: none;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.get-started-section {
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.get-started-section .section-header {
+    margin-bottom: 10px;
+}
+
+.get-started-section h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.btn-view-all {
+    background: none;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.course-categories {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.category-tag {
+    background-color: #f0f0f0;
+    color: #777;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.course-cards-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; 
+    padding-bottom: 10px; 
+}
+
+.course-card {
+    min-width: 300px; 
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.course-image-placeholder {
+    height: 120px;
+    background-color: #e6f7ff; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #007bff;
+}
+
+.course-title {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+
+.certificates-section {
+    background-color: #2e2e2e;
+    color: white;
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.certificates-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.certificates-section .section-description {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+}
+
+.certificate-item {
+    background-color: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cert-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.cert-instructor {
+    width: 24px;
+    height: 24px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    margin-right: 5px;
+    display: inline-block;
+}
