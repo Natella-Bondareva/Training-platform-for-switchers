@@ -11,9 +11,9 @@ const Header = () => (
                 <Link to="/" className="site-name-link">Site name</Link>
             </div>
             <ul className="nav-links">
-                <li><Link to="/support">Technical support</Link></li>
+                <li><Link to="/tecnicalsupport">Technical support</Link></li>
                 <li><Link to="/courses">All courses</Link></li> 
-                <li><Link to="/payments">Payments</Link></li>
+                <li><Link to="/payment">Payments</Link></li>
             </ul>
             <div className="nav-actions">
                 <button className="btn btn-login">Login</button>

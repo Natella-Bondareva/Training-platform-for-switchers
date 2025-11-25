@@ -1,0 +1,275 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root { 
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; 
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #000;
+  background-color: #fff;
+  width: 100%; 
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  width: 100%; 
+}
+
+.site-name-link {
+  font-size: 1.2em;
+  color: #000;
+  text-decoration: none; 
+  font-weight: bold; 
+}
+
+.site-name-link:hover {
+  text-decoration: underline; 
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link, .nav-button {
+  text-decoration: none;
+  color: #000;
+  padding: 8px 15px;
+  font-size: 1em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s; 
+}
+
+.nav-button.active {
+  background-color: #000;
+  color: #fff;
+}
+
+.nav-link:hover,
+.nav-button:not(.active):hover { 
+  background-color: #333; 
+  color: #fff; 
+}
+
+.nav-button.active:hover {
+  background-color: #000; 
+  color: #fff; 
+  cursor: default; 
+}
+
+.main-content {
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px 100px;
+  width: 100%; 
+}
+
+.main-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px; 
+}
+
+/* --- СТИЛІ ФОРМИ ПІДТРИМКИ --- */
+
+.support-prompt {
+  font-size: 1.1em;
+  margin-top: 20px; 
+  margin-bottom: 15px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; 
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc; 
+  height: 40px; 
+  background-color: #fff; 
+  color: #000; 
+}
+
+.send-button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: opacity 0.2s;
+  margin-top: 10px; 
+}
+
+.send-button:hover {
+  opacity: 0.8;
+}
+
+
+/* --- СТИЛІ СТОРІНКИ ОПЛАТИ --- */
+
+.payment-page-title {
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* Сірий блок з перевагами */
+.payment-card-container {
+    width: 100%;
+    max-width: 450px;
+    background-color: #444; /* Сірий фон */
+    color: #fff;
+    padding: 40px 30px 30px;
+    /* ЗАОКРУГЛЕНІ КУТИ */
+    border-radius: 10px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.price-tag {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    width: 100%;
+    text-align: left;
+}
+
+.benefits-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.benefits-list .check-icon {
+    color: #fff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.payment-button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 40px;
+    border: none;
+    /* ЗАОКРУГЛЕНІ КУТИ */
+    border-radius: 10px; 
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    max-width: 250px; 
+    transition: opacity 0.2s;
+}
+
+.payment-button:hover {
+    opacity: 0.8;
+}
+
+/* --- СТИЛІ СТОРІНКИ ДЕТАЛЕЙ ЗАПИТУ --- */
+
+.main-content.detail-page {
+    align-items: center;
+    padding-top: 50px;
+}
+
+.detail-header-row {
+    width: 100%;
+    max-width: 1000px; 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px; 
+    padding: 0 50px; 
+}
+
+.detail-header-row h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px; 
+    order: 1; 
+}
+
+.request-title {
+    font-size: 1.5em; 
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 30px; 
+    padding-left: 0; 
+    text-align: left;
+    order: 2; 
+}
+
+.request-status {
+    font-weight: normal;
+    font-size: 1.1em;
+    margin-top: 50px; 
+    margin-left: auto;
+    order: 3; 
+}
+
+.request-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px; 
+    padding: 0 50px;
+}
+
+.detail-block-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-title {
+    font-size: 1em;
+    margin-bottom: 5px; 
+    font-weight: bold;
+}
+
+.detail-box {
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    padding: 20px;
+    min-height: 200px;
+    display: block; 
+}
+
+.box-content {
+    font-size: 1em;
+    white-space: pre-wrap;
+}

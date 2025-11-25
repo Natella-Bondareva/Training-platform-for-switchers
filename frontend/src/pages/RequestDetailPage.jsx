@@ -1,8 +1,35 @@
 import React from 'react';
-import './Footer.css';
+import PropTypes from 'prop-types';
+import './TechnicalSupportPage.css';
 
-export const Footer = () => {
-    return (
+const Header = ({ activeView, goToPage }) => (
+    <header className="header">
+        <a href="/" className="site-name-link">Site name</a>
+        <nav className="nav">
+            <button 
+                className={`nav-button ${activeView === 'support' ? 'active' : ''}`}
+                onClick={() => goToPage('support')}
+            >
+                Technical support
+            </button>
+            <a href="/all-courses" className="nav-link">All courses</a>
+            <button 
+                className={`nav-button ${activeView === 'payment' ? 'active' : ''}`}
+                onClick={() => goToPage('payment')} 
+            >
+                Payment
+            </button>
+            <a href="/profile" className="nav-link">Profile</a>
+        </nav>
+    </header>
+);
+
+Header.propTypes = {
+    activeView: PropTypes.string.isRequired,
+    goToPage: PropTypes.func.isRequired, 
+};
+
+const Footer = () => (
     <footer className="footer">
         <div className="footer-left">
             <a href="/" className="site-name-footer-link">Site name</a>
@@ -27,4 +54,50 @@ export const Footer = () => {
         </div>
     </footer>
 );
+
+
+const RequestDetailPage = ({ requestData, goToPage, activeView }) => {
+    return (
+        <div className="page-container">
+            <Header activeView={activeView} goToPage={goToPage} /> 
+            
+            <main className="main-content detail-page">
+                <div className="detail-header-row">
+                    <h1>Technical support</h1>
+                    <div className="request-status">Status: {requestData.status}</div>
+                    <h2 className="request-title">{requestData.contactReason}</h2>
+                </div>
+                
+                <div className="request-details-grid">
+                    <div className="detail-block-wrapper">
+                        <h3 className="box-title">Problem</h3>
+                        <div className="detail-box problem-box">
+                            <p className="box-content">{requestData.problemDescription}</p>
+                        </div>
+                    </div>
+                    <div className="detail-block-wrapper">
+                        <h3 className="box-title">Technical support response</h3>
+                        <div className="detail-box response-box">
+                            <p className="box-content">{requestData.response}</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <Footer />
+        </div>
+    );
 };
+
+RequestDetailPage.propTypes = {
+    goToPage: PropTypes.func.isRequired,
+    activeView: PropTypes.string.isRequired,
+    requestData: PropTypes.shape({
+        contactReason: PropTypes.string.isRequired, 
+        problemDescription: PropTypes.string.isRequired, 
+        status: PropTypes.string.isRequired,
+        response: PropTypes.string.isRequired,
+    }).isRequired,
+};
+
+export default RequestDetailPage;
