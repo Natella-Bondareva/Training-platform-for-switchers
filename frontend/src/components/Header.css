@@ -1,34 +1,22 @@
-/* header.css */
-
-/* -------------------------------------- */
-/* 1. ЗАГАЛЬНА СТРУКТУРА HEADER (Обидва стани) */
-/* -------------------------------------- */
-
 .site-header {
-    /* Використовуємо темний фон з вашого останнього прикладу */
     background-color: #4c4a4a; 
     color: #fff;
     padding: 15px 0;
-    margin-bottom: 20px; /* Відступ від вмісту сторінки */
+    margin-bottom: 20px; 
 }
 
 .navbar {
     display: flex;
-    /* Ключовий елемент: розділяє логотип та решту навігації */
     justify-content: space-between; 
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Відступи від країв екрана */
+    padding: 0 20px; 
 }
-
-/* -------------------------------------- */
-/* 2. ЛІВІЙ БЛОК ТА ПОСИЛАННЯ (Обидва стани) */
-/* -------------------------------------- */
 
 .site-name-link {
     font-size: 1.2em;
-    color: #fff; /* Робимо білим, оскільки фон хедера темний */
+    color: #fff; 
     text-decoration: none; 
     font-weight: bold; 
 }
@@ -39,7 +27,7 @@
 
 .nav {
     display: flex;
-    gap: 15px; /* Проміжок між елементами навігації */
+    gap: 15px;
 }
 
 .nav-links {
@@ -64,17 +52,12 @@
     color: #fff; 
 }
 
-/* -------------------------------------- */
-/* 3. СТИЛІ ДІЙ (nav-actions) - УМОВНИЙ РЕНДЕРИНГ */
-/* -------------------------------------- */
-
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 10px; /* Проміжок між кнопками та посиланням Profile/Logout */
+    gap: 10px; 
 }
 
-/* Базові стилі для кнопок (Login, Sign-Up, Logout) */
 .btn {
     padding: 8px 15px;
     border: none;
@@ -88,28 +71,22 @@
     opacity: 0.9;
 }
 
-/* --- СТИЛІ ДЛЯ НЕЗАРЕЄСТРОВАНОГО СТАНУ --- */
 .btn-login {
-    /* Стилі з вашого останнього прикладу */
-    background-color: #ffc107; /* Жовтий */
+    background-color: #ffc107;
     color: #333; 
 }
 
 .btn-signup {
-    /* Стилі з вашого останнього прикладу */
-    background-color: #4CAF50; /* Зелений */
+    background-color: #4CAF50; 
     color: white;
 }
 
-/* --- СТИЛІ ДЛЯ ЗАРЕЄСТРОВАНОГО СТАНУ --- */
 .profile-link {
-    /* Стиль для посилання Profile */
     font-weight: bold;
-    color: #fff; /* Робимо його більш помітним на темному фоні */
+    color: #fff; 
 }
 
 .btn-logout {
-    /* Стиль для кнопки виходу, щоб вона виглядала як дія */
-    background-color: #f44336; /* Червоний */
+    background-color: #f44336; 
     color: white;
 }

@@ -1,27 +1,7 @@
 import React from 'react';
-import { Footer } from '../components/Footer';
 import '../styles/HomePage.css';
 import HeroImage from '../images/hero-home-page.jpg';
 import { Link } from 'react-router-dom';
-
-const Header = () => (
-    <header className="site-header">
-        <nav className="navbar">
-            <div className="nav-left">
-                <Link to="/" className="site-name-link">Site name</Link>
-            </div>
-            <ul className="nav-links">
-                <li><Link to="/tecnicalsupport">Technical support</Link></li>
-                <li><Link to="/courses">All courses</Link></li> 
-                <li><Link to="/payment">Payments</Link></li>
-            </ul>
-            <div className="nav-actions">
-                <Link to="/login"><button className="btn btn-login">Login</button></Link>
-                <Link to="/register"><button className="btn btn-signup">Sign-Up</button></Link>
-            </div>
-        </nav>
-    </header>
-);
 
 const HeroSection = () => (
     <section className="hero-section">
@@ -46,6 +26,7 @@ const HeroSection = () => (
         </div>
     </section>
 );
+
 
 const RoleCard = ({ title, description, imagePlaceholder }) => (
     <div className="role-card">
@@ -157,13 +138,10 @@ const CertificatesSection = () => (
     </section>
 );
 
-
 export const HomePage = () => {
     return (
         <div className="start-page-wrapper">
             <div className="content-background"> 
-
-                <Header />
                 
                 <main className="main-content">
                     
@@ -177,8 +155,6 @@ export const HomePage = () => {
                 
                 </main>
             </div>
-            
-            <Footer />
         </div>
     );
 };
