@@ -4,11 +4,15 @@ import Header from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { AllCoursesPage } from './pages/AllCoursesPage';
-import { CoursePage } from './pages/CoursePage'; 
+import { CoursePage } from './pages/CoursePage';
+import CourseDetailPage from './pages/CourseDetailPage'; 
 import PaymentPage from './pages/PaymentPage';
 import TechnicalSupportPageForm from './pages/TechnicalSupportPage';
 import RegisterPage from './pages/RegistrationPage';
 import LoginPage from './pages/LoginPage';
+import UserProfilePage from './pages/UserProfilePage';
+import LessonDetailPage from './pages/LessonDetailPage';
+import TaskDetailPage from './pages/TaskDetailPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,14 +38,17 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/courses" element={<AllCoursesPage />} />
           <Route path="/course/:courseId" element={<CoursePage />} />
+          <Route path="/study/:courseId" element={<CourseDetailPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/tecnicalsupport" element={<TechnicalSupportPageForm />} />
+          <Route path="/profile" element={<UserProfilePage />} />
+          <Route path="/study/:courseId/lesson/:lessonId" element={<LessonDetailPage />} />
+          <Route path="/study/:courseId/task/:taskId" element={<TaskDetailPage />} />
         </Routes>
       </div>
 
-      {/* Footer один на всі сторінки */}
       <Footer />
     </Router>
   );
