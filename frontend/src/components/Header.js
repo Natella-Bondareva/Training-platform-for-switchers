@@ -3,56 +3,78 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Header = ({ isLoggedIn, activeView, goToPage }) => {
-    // Всі основні навігаційні посилання
+    
+    // ОНОВЛЕНО: Використовуйте правильні шляхи, як у App.js, і додайте '/' на початку
     const navItems = [
-        { to: 'support', label: 'Technical support' },
-        { to: '/all-courses', label: 'All courses' }, // Це посилання залишаємо як Link до окремої сторінки
-        { to: 'payment', label: 'Payment' },
+        // Змінено 'support' на '/tecnicalsupport'
+        { path: '/tecnicalsupport', label: 'Technical support', viewName: 'tecnicalsupport' },
+        // Змінено '/all-courses' на '/courses'
+        { path: '/courses', label: 'All courses', viewName: 'courses' }, 
+        // Змінено 'payment' на '/payment'
+        { path: '/payment', label: 'Payment', viewName: 'payment' },
     ];
 
-    // Функція, яка перевіряє, чи активна поточна кнопка
+    // Функція для визначення активності (використовуємо activeView, якщо це необхідно для стилізації)
     const isActive = (viewName) => {
-        if (viewName === 'support') return activeView === 'support' || activeView === 'details';
-        if (viewName === 'payment') return activeView === 'payment' || activeView === 'checkout';
-        return false;
+        // Я спростив логіку активності, оскільки тепер вона залежить від маршруту, 
+        // але залишив вашу логіку activeView для підтримки поточного стану
+        return activeView === viewName;
     }
+    
+    // Функція-обгортка, яка викликає goToPage І дозволяє Link перейти
+    const handleNavClick = (viewName) => {
+        // Ми все одно викликаємо вашу функцію goToPage для оновлення стану activeView
+        goToPage(viewName);
+    };
 
     return (
-        // Враховуємо, що ви використовуєте class="header" у стилях
         <header className="header"> 
-            <a href="/" className="site-name-link">Site name</a>
+            
+            {/* 1. ВИПРАВЛЕНО: Використовуємо Link для повернення на Головну */}
+            <Link to="/" className="site-name-link" onClick={() => handleNavClick('home')}>Site name</Link>
             
             <nav className="nav">
-                {/* 1. Основні навігаційні кнопки/посилання */}
                 {navItems.map(item => (
-                    <React.Fragment key={item.to}>
-                        {/* Якщо це Technical Support або Payment - робимо кнопками для перемикання стану */}
-                        {(item.to === 'support' || item.to === 'payment') ? (
-                            <button 
-                                className={`nav-button ${isActive(item.to) ? 'active' : ''}`}
-                                onClick={() => goToPage(item.to)}
-                            >
-                                {item.label}
-                            </button>
-                        ) : (
-                            // All Courses як звичайне Link
-                            <Link to={item.to} className="nav-link">{item.label}</Link>
-                        )}
-                    </React.Fragment>
+                    // ВИПРАВЛЕНО: Використовуємо Link для всіх навігаційних елементів
+                    <Link 
+                        key={item.path}
+                        to={item.path} 
+                        className={`nav-link ${isActive(item.viewName) ? 'active' : ''}`}
+                        // Викликаємо handleNavClick для оновлення activeView у App.js
+                        onClick={() => handleNavClick(item.viewName)}
+                    >
+                        {item.label}
+                    </Link>
                 ))}
 
                 {/* 2. УМОВНИЙ РЕНДЕРИНГ: Дії користувача */}
                 {isLoggedIn ? (
                     // Стан: Зареєстрований
                     <>
-                        <Link to="/profile" className="nav-link profile-link">Profile</Link>
+                        {/* Припускаємо, що /profile також є маршрутом */}
+                        <Link to="/profile" className="nav-link profile-link" onClick={() => handleNavClick('profile')}>Profile</Link>
+                        {/* Logout залишається кнопкою, оскільки він лише змінює стан, а не переходить на новий маршрут */}
                         <button className="nav-button btn-logout" onClick={() => goToPage('logout')}>Logout</button>
                     </>
                 ) : (
                     // Стан: Не зареєстрований
                     <>
-                        <button className="nav-button btn-login" onClick={() => goToPage('login')}>Login</button>
-                        <button className="nav-button btn-signup" onClick={() => goToPage('signup')}>Sign-Up</button>
+                        {/* ВИПРАВЛЕНО: Використовуємо Link для login/register, оскільки вони мають маршрути */}
+                        <Link 
+                            to="/login" 
+                            className={`nav-link btn-login ${activeView === 'login' ? 'active' : ''}`}
+                            onClick={() => handleNavClick('login')}
+                        >
+                            Login
+                        </Link>
+                        {/* Припускаємо, що 'signup' повинен вести на /register */}
+                        <Link 
+                            to="/register" 
+                            className={`nav-link btn-signup ${activeView === 'register' ? 'active' : ''}`}
+                            onClick={() => handleNavClick('register')}
+                        >
+                            Sign-Up
+                        </Link>
                     </>
                 )}
             </nav>

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Auth.module.css';
-import { Footer } from '../components/Footer';
-
 
 function RegistrationPage() {
   const [formData, setFormData] = useState({
@@ -115,7 +113,6 @@ function RegistrationPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
