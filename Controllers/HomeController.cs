@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using switchers_platform.Models;
+using switchers_platform.Models.Entities;
 
 namespace switchers_platform.Controllers
 {
