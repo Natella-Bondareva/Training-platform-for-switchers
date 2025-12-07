@@ -1,0 +1,75 @@
+/* --- СТИЛІ СТОРІНКИ ДЕТАЛЕЙ ЗАПИТУ --- */
+
+.main-content.detail-page {
+    align-items: center;
+    padding-top: 50px;
+}
+
+.detail-header-row {
+    width: 100%;
+    max-width: 1000px; 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px; 
+    padding: 0 50px; 
+}
+
+.detail-header-row h1 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px; 
+    order: 1; 
+}
+
+.request-title {
+    font-size: 1.5em; 
+    font-weight: normal;
+    margin-top: 20px;
+    margin-bottom: 30px; 
+    padding-left: 0; 
+    text-align: left;
+    order: 2; 
+}
+
+.request-status {
+    font-weight: normal;
+    font-size: 1.1em;
+    margin-top: 50px; 
+    margin-left: auto;
+    order: 3; 
+}
+
+.request-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px; 
+    padding: 0 50px;
+}
+
+.detail-block-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-title {
+    font-size: 1em;
+    margin-bottom: 5px; 
+    font-weight: bold;
+}
+
+.detail-box {
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    padding: 20px;
+    min-height: 200px;
+    display: block; 
+}
+
+.box-content {
+    font-size: 1em;
+    white-space: pre-wrap;
+}

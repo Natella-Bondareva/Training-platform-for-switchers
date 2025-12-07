@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/TechnicalSupportPage.css';
+import '../styles/RequestDetailPage.css';
 
 const RequestDetailPage = ({ requestData }) => {
     return (

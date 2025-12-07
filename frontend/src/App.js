@@ -13,6 +13,8 @@ import LoginPage from './pages/LoginPage';
 import UserProfilePage from './pages/UserProfilePage';
 import LessonDetailPage from './pages/LessonDetailPage';
 import TaskDetailPage from './pages/TaskDetailPage';
+import PaymentPage2 from "./pages/PaymentPage2";
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -42,6 +44,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/payment2" element={<PaymentPage2 />} />
           <Route path="/tecnicalsupport" element={<TechnicalSupportPageForm />} />
           <Route path="/profile" element={<UserProfilePage />} />
           <Route path="/study/:courseId/lesson/:lessonId" element={<LessonDetailPage />} />
