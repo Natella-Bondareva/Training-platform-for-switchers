@@ -1,90 +1,134 @@
-import React from 'react';
-import { Footer } from '../components/Footer'; 
-import { Link } from 'react-router-dom';
-import '../styles/CoursePage.css'; 
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Footer } from '../components/Footer';
+import '../styles/CoursePage.css';
 
+const parseSkills = (skillsStr) => {
+    if (!skillsStr) return [];
+    return skillsStr.split(',').map(s => s.trim()).filter(Boolean);
+};
 
-const CourseDetailsContent = () => (
-    <section className="course-details-section">
-        <div className="course-main-content">
-            <div className="course-header">
-                <h1>IBM</h1>
-                <h2>Specialization Building AI Agents and Agentic Workflows</h2>
-            </div>
-            
-            <div className="course-info-grid">
-                <div className="info-box skills-box">
-                    <h4>Skills required</h4>
-                    <div className="skill-tags-list">
-                        <span className="skill-tag">React.js</span>
-                        <span className="skill-tag">Data Science</span>
-                        <span className="skill-tag">Python / Programming</span>
-                        <span className="skill-tag">Application Design</span>
-                        <span className="skill-tag">English B2</span>
-                        <span className="skill-tag">HTML / CSS</span>
-                        <span className="skill-tag">AI understanding</span>
-                        <span className="skill-tag">Design</span>
+const parseProgramIncludes = (programStr) => {
+    if (!programStr) return [];
+    return programStr.split('\n').map(line => line.trim()).filter(Boolean);
+};
+
+const CourseDetailsContent = ({ course, loading, error }) => {
+    if (loading) return <div className="course-details-section"><p>Loading course...</p></div>;
+    if (error) return <div className="course-details-section"><p className="error-text">{error}</p></div>;
+    if (!course) return null;
+
+    const skills = parseSkills(course.details?.skillsRequired);
+    const programIncludes = parseProgramIncludes(course.details?.programIncludes);
+
+    return (
+        <section className="course-details-section">
+            <div className="course-main-content">
+                <div className="course-header">
+                    <h1>{course.title}</h1>
+                    <h2>{course.details?.description?.split('\n')[0]}</h2>
+                </div>
+
+                <div className="course-info-grid">
+                    <div className="info-box skills-box">
+                        <h4>Skills required</h4>
+                        <div className="skill-tags-list">
+                            {skills.length > 0 ? skills.map(skill => (
+                                <span key={skill} className="skill-tag">{skill}</span>
+                            )) : <span className="skill-tag">No skills listed</span>}
+                        </div>
+                    </div>
+
+                    <div className="info-box included-box">
+                        <h4>What is included in the program?</h4>
+                        <ul className="included-list">
+                            {programIncludes.map((item, idx) => (
+                                <li key={idx}>{item}</li>
+                            ))}
+                        </ul>
+                        <div className="time-details">
+                            <p><strong>Total time:</strong> {course.details?.totalHours || course.details?.programIncludes?.match(/Total time: (\d+)/)?.[1] || 'N/A'} hours</p>
+                            <p><strong>Language:</strong> {course.details?.language || 'N/A'}</p>
+                        </div>
                     </div>
                 </div>
 
-                <div className="info-box included-box">
-                    <h4>What is included in the program?</h4>
-                    <ul className="included-list">
-                        <li>✅ <strong>Certificate:</strong> Professional IBM Certificate upon completion.</li>
-                        <li>📚 <strong>Modules:</strong> 5 specialized modules.</li>
-                        <li>🎙️ <strong>Lectures:</strong> 35 video lectures (Total 15 hours).</li>
-                        <li>✍️ <strong>Quizzes & Tasks:</strong> 10 graded assignments and 5 quizzes.</li>
-                        <li>💻 <strong>Software:</strong> Access to IBM Cloud tools and APIs.</li>
+                <div className="learn-section">
+                    <h3>What you will learn</h3>
+                    <ul>
+                        {course.details?.description?.split('\n').slice(1, 6).map((line, idx) => (
+                            <li key={idx}>{line}</li>
+                        ))}
                     </ul>
+                </div>
 
-                    <div className="time-details">
-                        <p><strong>Total time:</strong> 40 hours</p>
-                        <p><strong>Language:</strong> English (subtitles available)</p>
+                <div className="review-section">
+                    <h3>Review</h3>
+                    <p>{course.details?.description}</p>
+                </div>
+            </div>
+
+            <aside className="course-sidebar">
+                <div className="join-card">
+                    <button className="btn btn-join">JOIN THE COURSE</button>
+                    <div className="course-status">
+                        <span className="status-text">Participants: {course.participantsCount}</span>
+                        <span className="status-number">Course ID: {course.id}</span>
                     </div>
                 </div>
-            </div>
-
-            <div className="learn-section">
-                <h3>What you will learn</h3>
-                <ul>
-                    <li>Orchestrate agentic multi-agent systems with CrewAI for collaboration, coordination, and parallelism.</li>
-                    <li>Build conversation-driven agents (AI assistants) with Bosshh and AGI.js, compare AI frameworks.</li>
-                    <li>Design and implement agents that use memory, reasoning, and complex workflows.</li>
-                    <li>Utilize LLMs like OpenAI GPT, Meta Llama, and IBM Granite in agent development.</li>
-                </ul>
-            </div>
-            
-            <div className="review-section">
-                <h3>Review</h3>
-                <p>
-                    <strong>Introduction:</strong> This specialization is designed to teach you how to build the next generation of AI applications. You will learn to utilize LLMs (such as OpenAI GPT, Meta Llama, and IBM Granite) to develop agents that employ memory, reasoning, and complex workflows.
-                </p>
-                <p>
-                    <strong>Program:</strong> The curriculum covers everything from basic concepts (tool configuration, memory management) to complex architectures (multi-agent systems, applications with knowledge graphs) and the use of tools like CrewAI.
-                </p>
-            </div>
-
-        </div>
-        
-        <aside className="course-sidebar">
-            <div className="join-card">
-                <button className="btn btn-join">JOIN THE COURSE</button>
-                <div className="course-status">
-                    <span className="status-text">Starts 10 November '24</span>
-                    <span className="status-number">24 / 40</span>
-                </div>
-            </div>
-        </aside>
-    </section>
-);
-
+            </aside>
+        </section>
+    );
+};
 
 export const CoursePage = () => {
+    const { courseId } = useParams();
+    const [course, setCourse] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        console.log('[CoursePage] courseId from params:', courseId);
+        if (!courseId || courseId === 'undefined') {
+            setError('Invalid course ID. Please check the link.');
+            setLoading(false);
+            return;
+        }
+        const fetchCourse = async () => {
+            setLoading(true);
+            setError('');
+            try {
+                const response = await fetch(`http://localhost:5044/api/courses/${courseId}`);
+                const contentType = response.headers.get('content-type');
+                let data;
+                if (contentType && contentType.includes('application/json')) {
+                    data = await response.json();
+                    console.log('[CoursePage] API response:', data);
+                } else {
+                    const text = await response.text();
+                    console.log('[CoursePage] API non-JSON response:', text);
+                    throw new Error(text || 'Unexpected response from server');
+                }
+                if (!response.ok) {
+                    console.log('[CoursePage] API error:', data);
+                    throw new Error(data.message || `Failed to load course: ${response.status}`);
+                }
+                setCourse(data);
+            } catch (err) {
+                console.error('[CoursePage] Fetch error:', err);
+                setError(err.message || 'Failed to load course');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchCourse();
+    }, [courseId]);
+
     return (
         <div className="start-page-wrapper">
             <div className="content-background"> 
                 <main className="main-content">
-                    <CourseDetailsContent />
+                    <CourseDetailsContent course={course} loading={loading} error={error} />
                 </main>
             </div>
         </div>

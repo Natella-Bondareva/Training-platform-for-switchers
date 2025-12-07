@@ -7,10 +7,14 @@
         public string Title { get; set; } = null!;
         public string? ShortDescription { get; set; }
         public string? ImageUrl { get; set; }
+        public int ParticipantsCount { get; set; }
+
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Navigation property — зв’язок 1:N
         public List<Lesson> Lessons { get; set; } = new();
+
+        public CourseDetails Details { get; set; }
     }
 }

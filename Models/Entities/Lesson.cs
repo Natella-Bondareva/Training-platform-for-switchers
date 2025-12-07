@@ -4,10 +4,13 @@
     {
         public int Id { get; set; }
 
-        public string Title { get; set; } = null!;
-        public string? Content { get; set; } // можна розширяти пізніше
-
         public int CourseId { get; set; }
-        public Course Course { get; set; } = null!;
+        public Course Course { get; set; }
+
+        public string Title { get; set; }            // Заголовок уроку
+        public string VideoUrl { get; set; }         // Посилання на відео (YouTube)
+        public string Description { get; set; }      // Опис уроку
+
+        public string TestUrl { get; set; }          // Посилання на фінальний тест (Google Forms)
     }
 }

@@ -3,12 +3,19 @@ import { Link } from 'react-router-dom';
 import '../styles/AllCoursesPage.css'; 
 
 const CourseCard = ({ course }) => {
-    const backgroundStyle = course.image 
+    const backgroundStyle = course.image
         ? { backgroundImage: `url(${course.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }
         : { backgroundColor: '#000000' };
 
+    // Make the whole card clickable and pass the id in the route
     return (
-        <Link to={`/course/${course.id}`} className="course-grid-card" style={backgroundStyle}>
+        <Link
+            to={`/course/${course.id}`}
+            className="course-grid-card"
+            style={backgroundStyle}
+            aria-label={`View details for course ${course.title}`}
+            tabIndex={0}
+        >
             {!course.image && (
                 <div className="card-placeholder">
                     {course.title}
@@ -64,29 +71,30 @@ export const AllCoursesPage = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                        const token = localStorage.getItem('token');
-                        const headers = token ? { Authorization: `Bearer ${token}` } : {};
-                        const response = await fetch('http://localhost:5044/api/courses', { headers });
-                        if (!response.ok) {
-                            const contentType = response.headers.get('content-type');
-                            let errMsg = response.statusText;
-                            if (contentType && contentType.includes('application/json')) {
-                                const errData = await response.json();
-                                errMsg = errData.message || JSON.stringify(errData);
-                            } else {
-                                const text = await response.text();
-                                errMsg = text || response.statusText;
-                            }
-                            throw new Error(`Failed to fetch courses: ${errMsg}`);
-                        }
-
-                        const data = await response.json();
-                        setCourses(data);
-                        setLoading(false);
-                    } catch (err) {
-                        setError(err.message);
-                        setLoading(false);
+                const token = localStorage.getItem('token');
+                const headers = token ? { Authorization: `Bearer ${token}` } : {};
+                const response = await fetch('http://localhost:5044/api/courses', { headers });
+                if (!response.ok) {
+                    const contentType = response.headers.get('content-type');
+                    let errMsg = response.statusText;
+                    if (contentType && contentType.includes('application/json')) {
+                        const errData = await response.json();
+                        errMsg = errData.message || JSON.stringify(errData);
+                    } else {
+                        const text = await response.text();
+                        errMsg = text || response.statusText;
                     }
+                    throw new Error(`Failed to fetch courses: ${errMsg}`);
+                }
+
+                const data = await response.json();
+                console.log('[AllCoursesPage] courses from API:', data);
+                setCourses(data);
+                setLoading(false);
+            } catch (err) {
+                setError(err.message);
+                setLoading(false);
+            }
         };
 
         fetchCourses();

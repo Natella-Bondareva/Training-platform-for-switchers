@@ -14,6 +14,8 @@ namespace switchers_platform.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
 
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -30,6 +32,13 @@ namespace switchers_platform.Data
                 new Role { Id = 2, Name = "Mentor" },
                 new Role { Id = 3, Name = "Admin" }
             );
+
+            modelBuilder.Entity<Course>()
+                .HasOne(c => c.Details)
+                .WithOne(d => d.Course)
+                .HasForeignKey<CourseDetails>(d => d.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }
