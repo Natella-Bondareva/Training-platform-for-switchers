@@ -19,14 +19,20 @@ const HeroSection = () => (
                     free access to 100+ professional courses.
                 </p>
                 <div className="hero-buttons">
-                    <button className="btn btn-popup-login">Login</button>
-                    <button className="btn btn-popup-signup">Sign-Up Now!</button>
+                    {/* Кнопка переходу на сторінку логіну */}
+                    <Link to="/login" className="btn btn-popup-login">
+                        Login
+                    </Link>
+
+                    {/* Кнопка переходу на сторінку реєстрації */}
+                    <Link to="/register" className="btn btn-popup-signup">
+                        Sign-Up Now!
+                    </Link>
                 </div>
             </div>
         </div>
     </section>
 );
-
 
 const RoleCard = ({ title, description, imagePlaceholder }) => (
     <div className="role-card">
@@ -142,17 +148,11 @@ export const HomePage = () => {
     return (
         <div className="start-page-wrapper">
             <div className="content-background"> 
-                
                 <main className="main-content">
-                    
                     <HeroSection />
-                    
                     <RoleSelectionSection />
-                    
                     <GetStartedSection />
-                    
                     <CertificatesSection />
-                
                 </main>
             </div>
         </div>

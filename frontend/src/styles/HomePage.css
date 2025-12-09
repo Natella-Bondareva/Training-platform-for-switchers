@@ -72,15 +72,19 @@ body {
     margin-left: 10px;
     font-weight: bold;
 }
+
 .btn-login {
     background-color: #ffc107; 
     border-radius: 4px;
 }
+
 .btn-signup {
     background-color: #4CAF50; 
     color: white;
     border-radius: 4px;
 }
+
+/* ---------- HERO ---------- */
 
 .hero-section {
     position: relative;
@@ -121,14 +125,56 @@ body {
     margin-bottom: 15px;
 }
 
+/* Загальний стиль кнопок у попапі (Link виглядає як кнопка) */
 .hero-popup .btn {
+    display: inline-block;
     margin: 0 10px;
     padding: 10px 20px;
     font-size: 16px;
-    border-radius: 8px; 
+    border-radius: 8px;
+    text-decoration: none;             /* прибираємо підкреслення посилання */
+    border: 2px solid transparent;     /* щоб при hover була "зовнішня" обводка */
+    cursor: pointer;
+    font-weight: 600;
+    transition: 
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
-.btn-popup-login { background-color: #ffc107; }
-.btn-popup-signup { background-color: #4CAF50; color: white; }
+
+/* Login — як раніше: жовта, чорний текст, при hover синій текст + рамка */
+.btn-popup-login {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.btn-popup-login:hover {
+    background-color: #e6ad00;
+    color: #0056d6;                    /* синій текст */
+    border-color: #0056d6;             /* рамка при наведенні */
+    box-shadow: 0 0 0 3px rgba(0, 86, 214, 0.25);
+}
+
+/* Sign-Up Now! — зелена з білим текстом, з обводкою при hover */
+.btn-popup-signup {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.btn-popup-signup:hover {
+    background-color: #3d9b43;
+    border-color: #1f7a30;
+    box-shadow: 0 0 0 3px rgba(31, 122, 48, 0.25);
+}
+
+/* Фокус-outline (клавіатура / кліки) */
+.hero-popup .btn:focus {
+    outline: 3px solid #0057ff;
+    outline-offset: 2px;
+}
+
+/* ---------- РОЛІ ---------- */
 
 .role-selection-section {
     background-color: white;
@@ -174,10 +220,6 @@ body {
     font-size: 14px;
 }
 
-.role-card h3 {
-    color: #007bff;
-}
-
 /* Стилі карти ролі */
 .role-card .card-header {
     position: relative;
@@ -192,7 +234,6 @@ body {
     background-position: top center;
 }
 
-
 .role-card .card-header::after {
     content: '';
     position: absolute;
@@ -200,7 +241,7 @@ body {
     right: 0;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, transparent 50%, #ffc107 50%); /* Жовтий кут */
+    background: linear-gradient(135deg, transparent 50%, #ffc107 50%);
     opacity: 0.8;
 }
 
@@ -225,8 +266,7 @@ body {
     font-weight: normal;
 }
 
-.btn-all-roles
-{
+.btn-all-roles {
     background: none;
     border: 1px solid #ddd;
     color: #333;
@@ -234,6 +274,8 @@ body {
     border-radius: 20px;
     font-size: 14px;
 }
+
+/* ---------- GET STARTED ---------- */
 
 .get-started-section {
     background-color: white;
@@ -309,6 +351,7 @@ body {
     color: #333;
 }
 
+/* ---------- CERTIFICATES ---------- */
 
 .certificates-section {
     background-color: #2e2e2e;
