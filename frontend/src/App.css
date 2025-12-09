@@ -1,8 +1,24 @@
-.App {
-  text-align: center;
-  width: 100%; 
-  min-height: 100vh;
+/* Щоб корінь займав всю висоту вікна */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
+/* Головний layout всього сайту */
+.App {
+  display: flex;
+  flex-direction: column;  /* Header → контент → Footer в колонку */
+  min-height: 100vh;       /* мінімум на висоту екрана */
+  width: 100%;
+}
+
+/* Основний контент між Header і Footer */
+.App-content {
+  flex: 1;                 /* розтягується, щоб футер був внизу */
+}
+
+/* Далі — залишаю твої старі стилі, якщо раптом десь використовуються */
 
 .App-logo {
   height: 40vmin;
@@ -15,6 +31,8 @@
   }
 }
 
+/* Якщо ти ніде не використовуєш App-header, можна видалити.
+   Якщо використовуєш — хай буде. */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -38,5 +56,3 @@
     transform: rotate(360deg);
   }
 }
-
-

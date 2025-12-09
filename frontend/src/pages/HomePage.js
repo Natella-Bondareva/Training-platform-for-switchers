@@ -52,7 +52,11 @@ const RoleSelectionSection = () => (
         <div className="section-header">
             <h2>Select a role</h2>
             <p>Get started with professional courses and find your career path.</p>
-            <button className="btn btn-all-roles">View All</button>
+
+            {/* View All -> /courses */}
+            <Link to="/courses" className="btn btn-all-roles">
+                View All
+            </Link>
         </div>
         
         <div className="role-cards-grid">
@@ -86,7 +90,11 @@ const GetStartedSection = () => (
     <section className="get-started-section">
         <div className="section-header">
             <h2>Get Started with Free Courses</h2>
-            <button className="btn btn-view-all">View All</button>
+
+            {/* View All -> /courses */}
+            <Link to="/courses" className="btn btn-view-all">
+                View All
+            </Link>
         </div>
         <div className="course-categories">
             {['Beginning', 'Popular', 'Trending'].map(cat => (
