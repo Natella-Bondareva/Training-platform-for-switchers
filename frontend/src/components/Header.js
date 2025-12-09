@@ -7,10 +7,15 @@ const Header = ({ activeView, goToPage }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
     const [role, setRole] = useState(localStorage.getItem('role') || '');
 
+    console.log('[Header] Initial render - isLoggedIn:', isLoggedIn, 'role:', role);
+
     useEffect(() => {
         const onAuthChange = () => {
-            setIsLoggedIn(!!localStorage.getItem('token'));
-            setRole(localStorage.getItem('role') || '');
+            const token = localStorage.getItem('token');
+            const savedRole = localStorage.getItem('role') || '';
+            console.log('[Header] authChange event - token exists:', !!token, 'role:', savedRole);
+            setIsLoggedIn(!!token);
+            setRole(savedRole);
         };
 
         window.addEventListener('authChange', onAuthChange);
@@ -58,7 +63,17 @@ const Header = ({ activeView, goToPage }) => {
 
                 {isLoggedIn ? (
                     <>
-                        <Link to="/profile" className="nav-link profile-link" onClick={() => handleNavClick('profile')}>Profile</Link>
+                        {role === 'Admin' && (
+                            <Link to="/create-course" className="nav-link btn-create-course" onClick={() => handleNavClick('create-course')}>
+                                Create Course
+                            </Link>
+                        )}
+                        {role === 'Mentor' && (
+                            <Link to="/my-courses" className="nav-link btn-my-courses" onClick={() => handleNavClick('my-courses')}>
+                                My Courses
+                            </Link>
+                        )}
+                        <Link to={`/profile/${localStorage.getItem('userId')}`} className="nav-link profile-link" onClick={() => handleNavClick('profile')}>Profile</Link>
                         <button className="nav-button btn-logout" onClick={handleLogout}>Logout</button>
                     </>
                 ) : (

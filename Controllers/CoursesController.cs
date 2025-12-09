@@ -26,7 +26,9 @@ namespace switchers_platform.Controllers
                 {
                     Id = c.Id,
                     Title = c.Title,
-                    ParticipantsCount = c.ParticipantsCount
+                    ParticipantsCount = c.ParticipantsCount,
+                    MentorId = c.MentorId,  
+                    Status = c.Status
                 })
                 .ToListAsync();
 
@@ -71,6 +73,8 @@ namespace switchers_platform.Controllers
             {
                 Title = dto.Title,
                 ParticipantsCount = dto.ParticipantsCount,
+                MentorId = dto.MentorId,     // ⭐ нове
+                Status = "Draft",            // ⭐ за замовчуванням
                 Details = new CourseDetails
                 {
                     SkillsRequired = dto.SkillsRequired,
@@ -86,6 +90,7 @@ namespace switchers_platform.Controllers
 
             return Ok(new { message = "Course created", course.Id });
         }
+
 
         // ---------------- Update course ----------------
         [HttpPut("{id}")]
@@ -110,6 +115,36 @@ namespace switchers_platform.Controllers
             await _context.SaveChangesAsync();
 
             return Ok("Course updated");
+        }
+
+        [HttpGet("mentor/{mentorId}")]
+        public async Task<ActionResult<IEnumerable<CourseBasicDto>>> GetMentorCourses(int mentorId)
+        {
+            var courses = await _context.Courses
+                .Where(c => c.MentorId == mentorId)
+                .Select(c => new CourseBasicDto
+                {
+                    Id = c.Id,
+                    Title = c.Title,
+                    ParticipantsCount = c.ParticipantsCount,
+                    Status = c.Status,
+                    MentorId = c.MentorId
+                })
+                .ToListAsync();
+
+            return Ok(courses);
+        }
+
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> UpdateStatus(int id, [FromBody] string newStatus)
+        {
+            var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            if (course == null) return NotFound();
+
+            course.Status = newStatus;
+            await _context.SaveChangesAsync();
+
+            return Ok("Status updated");
         }
     }
 }

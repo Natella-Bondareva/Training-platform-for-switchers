@@ -25,8 +25,7 @@
             public string VideoUrl { get; set; }
             public string Description { get; set; }
             public string TestUrl { get; set; }
-            public string TaskDescription { get; set; }
-            public string TaskFileUrl { get; set; }
+
         }
 
 }

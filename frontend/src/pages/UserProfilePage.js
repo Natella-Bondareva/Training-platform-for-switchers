@@ -189,13 +189,17 @@ const EditForm = ({ initial, onCancel, onSave }) => {
 };
 
 const UserProfilePage = () => {
-    const { id } = useParams();
-    const userId = id || '1';
+    const { userId } = useParams();
+    const id = userId || localStorage.getItem('userId') || '1';
     const [userData, setUserData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
+
+    console.log('[UserProfilePage] userId from params:', userId);
+    console.log('[UserProfilePage] userId from localStorage:', localStorage.getItem('userId'));
+    console.log('[UserProfilePage] Using id:', id);
 
     const computeAge = (birthDateString) => {
         if (!birthDateString) return null;
@@ -212,7 +216,8 @@ const UserProfilePage = () => {
             try {
                 const token = localStorage.getItem('token');
                 const headers = token ? { Authorization: `Bearer ${token}` } : {};
-                const url = `http://localhost:5044/api/accounts/profile/${userId}`;
+                const url = `http://localhost:5044/api/accounts/profile/${id}`;
+                console.log('[UserProfilePage] Fetching profile from:', url);
                 const response = await fetch(url, { headers });
 
                 let data;
@@ -250,7 +255,7 @@ const UserProfilePage = () => {
         };
 
         fetchProfile();
-    }, [userId]);
+    }, [id]);
 
     // Save updated profile via PUT
     const handleSaveProfile = async (updated) => {
@@ -258,7 +263,7 @@ const UserProfilePage = () => {
         const headers = { 'Content-Type': 'application/json' };
         if (token) headers.Authorization = `Bearer ${token}`;
 
-        const url = `http://localhost:5044/api/accounts/profile/${userId}`;
+        const url = `http://localhost:5044/api/accounts/profile/${id}`;
         const response = await fetch(url, {
             method: 'PUT',
             headers,

@@ -89,7 +89,11 @@ export const AllCoursesPage = () => {
 
                 const data = await response.json();
                 console.log('[AllCoursesPage] courses from API:', data);
-                setCourses(data);
+                // Only include courses with status 'Published' (case-insensitive)
+                const published = Array.isArray(data)
+                    ? data.filter(c => (c.status || '').toString().toLowerCase() === 'published')
+                    : [];
+                setCourses(published);
                 setLoading(false);
             } catch (err) {
                 setError(err.message);

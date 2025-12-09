@@ -88,8 +88,6 @@ namespace switchers_platform.Controllers
             lesson.VideoUrl = dto.VideoUrl;
             lesson.Description = dto.Description;
             lesson.TestUrl = dto.TestUrl;
-            lesson.TaskDescription = dto.TaskDescription;
-            lesson.TaskFileUrl = dto.TaskFileUrl;
 
             await _context.SaveChangesAsync();
 

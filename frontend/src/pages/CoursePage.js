@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import '../styles/CoursePage.css';
 
@@ -13,13 +13,18 @@ const parseProgramIncludes = (programStr) => {
     return programStr.split('\n').map(line => line.trim()).filter(Boolean);
 };
 
-const CourseDetailsContent = ({ course, loading, error }) => {
+const CourseDetailsContent = ({ course, loading, error, courseId }) => {
+    const navigate = useNavigate();
     if (loading) return <div className="course-details-section"><p>Loading course...</p></div>;
     if (error) return <div className="course-details-section"><p className="error-text">{error}</p></div>;
     if (!course) return null;
 
     const skills = parseSkills(course.details?.skillsRequired);
     const programIncludes = parseProgramIncludes(course.details?.programIncludes);
+
+    const handleJoinCourse = () => {
+        navigate(`/study/${courseId}`);
+    };
 
     return (
         <section className="course-details-section">
@@ -70,7 +75,7 @@ const CourseDetailsContent = ({ course, loading, error }) => {
 
             <aside className="course-sidebar">
                 <div className="join-card">
-                    <button className="btn btn-join">JOIN THE COURSE</button>
+                    <button className="btn btn-join" onClick={handleJoinCourse}>JOIN THE COURSE</button>
                     <div className="course-status">
                         <span className="status-text">Participants: {course.participantsCount}</span>
                         <span className="status-number">Course ID: {course.id}</span>
@@ -128,7 +133,7 @@ export const CoursePage = () => {
         <div className="start-page-wrapper">
             <div className="content-background"> 
                 <main className="main-content">
-                    <CourseDetailsContent course={course} loading={loading} error={error} />
+                    <CourseDetailsContent course={course} loading={loading} error={error} courseId={courseId} />
                 </main>
             </div>
         </div>

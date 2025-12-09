@@ -124,6 +124,7 @@ function RegistrationPage() {
 
       // Success handling
       const successMessage = data.message || 'Реєстрація успішна!';
+      console.log('[RegistrationPage] Registration successful:', successMessage);
       alert(successMessage);
       navigate('/login');
     } catch (err) {

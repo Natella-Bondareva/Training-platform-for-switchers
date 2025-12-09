@@ -57,14 +57,26 @@ export default function LoginPage() {
 
       // Expecting { token: '...', role: 'User' }
       const token = data.token;
-      const role = data.role || data.roles || 'User';
+      let role = data.user.role;
+      const userId = data.user.id;
 
       if (!token) {
         throw new Error('No token received from server');
       }
 
+      console.log('[LoginPage] Login successful');
+      console.log('[LoginPage] Token:', token.substring(0, 20) + '...');
+      console.log('[LoginPage] User ID:', userId);
+      console.log('[LoginPage] Role from API:', data.user.role);
+      console.log('[LoginPage] Final role (after костиль):', role);
+
       localStorage.setItem('token', token);
       localStorage.setItem('role', role);
+      localStorage.setItem('userId', userId);
+
+      console.log('[LoginPage] Stored in localStorage - Token:', localStorage.getItem('token')?.substring(0, 20) + '...');
+      console.log('[LoginPage] Stored in localStorage - Role:', localStorage.getItem('role'));
+      console.log('[LoginPage] Stored in localStorage - User ID:', localStorage.getItem('userId'));
 
       // notify other components about auth change
       window.dispatchEvent(new Event('authChange'));

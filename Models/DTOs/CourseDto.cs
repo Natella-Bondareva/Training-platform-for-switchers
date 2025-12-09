@@ -5,6 +5,8 @@
         public int Id { get; set; }
         public string Title { get; set; }
         public int ParticipantsCount { get; set; }
+        public string MentorId { get; set; }
+        public string Status { get; set; }
 
         public CourseDetailsDto Details { get; set; }
 
@@ -16,6 +18,8 @@
         public int Id { get; set; }
         public string Title { get; set; }
         public int ParticipantsCount { get; set; }
+        public int MentorId { get; set; }
+        public string Status { get; set; }
     }
 
     public class CourseDetailsDto
@@ -31,6 +35,9 @@
     {
         public string Title { get; set; }
         public int ParticipantsCount { get; set; }
+
+        public int MentorId { get; set; }
+    
 
         public string SkillsRequired { get; set; }
         public string ProgramIncludes { get; set; }
